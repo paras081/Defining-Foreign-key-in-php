@@ -10,7 +10,7 @@
 						VALUES ('$cname','$state')
 					";
 
-		$execute=mysqli_query($conn,$ins_query);
+		$execute=$conn->query($ins_query);
 
 		if($execute){
 
@@ -42,11 +42,11 @@
 				<option>--Select Country--</option>
 				<?php
 					$sel_query="SELECT * from cname";
-					$execute=mysqli_query($conn,$sel_query);
-					while($fet=mysqli_fetch_assoc($execute))
+					$execute=$conn->query($sel_query);
+					while($fet=$execute->fetch_array())
 					{
 				?>
-				<option value="<?php echo $fet['cname']  ?>"><?php echo $fet['cname']  ?></option>
+				<option value="<?php echo $fet['cid']  ?>"><?php echo $fet['cname']  ?></option>
 				<?php
 				}
 				?>
